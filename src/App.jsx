@@ -153,7 +153,7 @@ export default function ProteinTracker() {
   const inputStyle = {
     width:"100%", background:"rgba(255,255,255,0.07)",
     border:"1px solid rgba(232,223,208,0.15)", borderRadius:"8px",
-    padding:"8px 12px", color:C.text, fontFamily:"'Caveat',cursive",
+    padding:"8px 12px", color:C.text, fontFamily: "Arial, sans-serif",
     fontSize:"16px", outline:"none",
   };
 
@@ -189,7 +189,7 @@ export default function ProteinTracker() {
         .stepper-btn:hover { background:rgba(255,255,255,.15); }
       `}</style>
 
-      <div style={{ minHeight:"100vh", background:"linear-gradient(155deg,#0c1810 0%,#101f16 60%,#0c1810 100%)", fontFamily:"'Caveat',cursive", color:C.text, padding:"22px 24px 40px" }}>
+      <div style={{ minHeight:"100vh", background:"linear-gradient(155deg,#0c1810 0%,#101f16 60%,#0c1810 100%)", fontFamily:"Arial, sans-serif", color:C.text, padding:"22px 24px 40px" }}>
 
         {/* ── HEADER ── */}
         <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", flexWrap:"wrap", gap:"12px", marginBottom:"20px" }}>
@@ -229,7 +229,7 @@ export default function ProteinTracker() {
               : available.map(block => (
                 <div key={block.id} draggable className="fb"
                   onDragStart={e => onDragStart(e, block.id)} onDragEnd={onDragEnd}
-                  style={{ background:block.color, color:block.tc, borderRadius:"9px", padding:"5px 11px", fontSize:"14px", fontFamily:"'Caveat',cursive", fontWeight:600, opacity: draggingId===block.id?.25:1, boxShadow:"0 2px 7px rgba(0,0,0,.3)", display:"flex", alignItems:"center", gap:"5px", userSelect:"none" }}>
+                  style={{ background:block.color, color:block.tc, borderRadius:"9px", padding:"5px 11px", fontSize:"14px", fontFamily: "Arial, sans-serif", fontWeight:600, opacity: draggingId===block.id?.25:1, boxShadow:"0 2px 7px rgba(0,0,0,.3)", display:"flex", alignItems:"center", gap:"5px", userSelect:"none" }}>
                   {block.emoji} {block.name}
                 </div>
               ))
@@ -246,7 +246,7 @@ export default function ProteinTracker() {
                 <th style={{ width:"88px" }} />
                 {DAYS_SHORT.map((d,i) => (
                   <th key={d} style={{ textAlign:"center", paddingBottom:"8px" }}>
-                    <div style={{ fontSize:"18px", fontFamily:"'Caveat',cursive", fontWeight:700, color: i>=5 ? C.green : C.text }}>{d}</div>
+                    <div style={{ fontSize:"18px", fontFamily: "Arial, sans-serif", fontWeight:700, color: i>=5 ? C.green : C.text }}>{d}</div>
                     {i>=5 && <div style={{ fontSize:"9px", letterSpacing:"1.5px", color:"rgba(74,222,128,.55)", textTransform:"uppercase" }}>finde</div>}
                   </th>
                 ))}
@@ -274,7 +274,7 @@ export default function ProteinTracker() {
                               onDragStart={e => onDragStart(e, block.id)} onDragEnd={onDragEnd}
                               onDoubleClick={() => returnBlock(block.id)}
                               title={`${block.name} — doble clic para devolver`}
-                              style={{ background:block.color, color:block.tc, borderRadius:"5px", padding:"3px 6px", fontSize:"11px", fontFamily:"'Caveat',cursive", fontWeight:700, opacity: draggingId===block.id?.2:1, boxShadow:"0 1px 4px rgba(0,0,0,.3)", display:"flex", alignItems:"center", gap:"3px", userSelect:"none", maxWidth:"100%" }}>
+                              style={{ background:block.color, color:block.tc, borderRadius:"5px", padding:"3px 6px", fontSize:"11px", fontFamily: "Arial, sans-serif", fontWeight:700, opacity: draggingId===block.id?.2:1, boxShadow:"0 1px 4px rgba(0,0,0,.3)", display:"flex", alignItems:"center", gap:"3px", userSelect:"none", maxWidth:"100%" }}>
                               <span style={{ fontSize:"12px" }}>{block.emoji}</span>
                               <span style={{ overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap", maxWidth:"68px" }}>{block.name}</span>
                             </div>
