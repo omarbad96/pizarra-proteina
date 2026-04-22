@@ -160,34 +160,45 @@ export default function ProteinTracker() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { background:#0c1810; }
-        .fb { cursor:grab; transition:transform .15s ease, box-shadow .15s ease; }
-        .fb:hover { transform:translateY(-2px) scale(1.04); box-shadow:0 5px 14px rgba(0,0,0,.45) !important; }
-        .fb:active { cursor:grabbing; }
-        .cell-drop { transition:background .15s, border-color .15s; }
-        .board-table { border-collapse:separate; border-spacing:5px; }
-        .board-table td, .board-table th { padding:0; }
-        ::-webkit-scrollbar { width:5px; height:5px; }
-        ::-webkit-scrollbar-thumb { background:rgba(232,223,208,.18); border-radius:3px; }
-        input:focus { border-color:rgba(74,222,128,.4) !important; }
-        .btn-green { background:rgba(74,222,128,.15); border:1px solid rgba(74,222,128,.3); color:#4ADE80; border-radius:8px; padding:8px 16px; font-family:'Caveat',cursive; font-size:15px; cursor:pointer; transition:background .15s; }
-        .btn-green:hover { background:rgba(74,222,128,.25); }
-        .btn-red { background:rgba(239,83,80,.15); border:1px solid rgba(239,83,80,.3); color:#EF5350; border-radius:8px; padding:8px 16px; font-family:'Caveat',cursive; font-size:15px; cursor:pointer; transition:background .15s; }
-        .btn-red:hover { background:rgba(239,83,80,.25); }
-        .btn-ghost { background:rgba(255,255,255,.06); border:1px solid rgba(232,223,208,.12); color:rgba(232,223,208,.6); border-radius:8px; padding:8px 16px; font-family:'Caveat',cursive; font-size:15px; cursor:pointer; transition:background .15s; }
-        .btn-ghost:hover { background:rgba(255,255,255,.1); }
-        .emoji-btn { background:rgba(255,255,255,.07); border:1px solid rgba(232,223,208,.12); border-radius:6px; padding:5px 8px; font-size:18px; cursor:pointer; transition:background .1s, border-color .1s; }
-        .emoji-btn:hover { background:rgba(255,255,255,.14); }
-        .emoji-btn.sel { border-color:#4ADE80; background:rgba(74,222,128,.12); }
-        .food-row { display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid rgba(232,223,208,.07); border-radius:10px; background:rgba(255,255,255,.03); cursor:pointer; transition:background .15s, border-color .15s; }
-        .food-row:hover { background:rgba(255,255,255,.07); border-color:rgba(232,223,208,.15); }
-        @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-        .modal-panel { animation:fadeUp .2s ease; }
-        .stepper-btn { width:36px; height:36px; border-radius:8px; background:rgba(255,255,255,.08); border:1px solid rgba(232,223,208,.12); color:#E8DFD0; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .1s; }
-        .stepper-btn:hover { background:rgba(255,255,255,.15); }
-      `}</style>
+  * { 
+    box-sizing:border-box; 
+    margin:0; 
+    padding:0; 
+    font-family: Arial, sans-serif;
+  }
+  body { background:#0c1810; }
+  .fb { cursor:grab; transition:transform .15s ease, box-shadow .15s ease; }
+  .fb:hover { transform:translateY(-2px) scale(1.04); box-shadow:0 5px 14px rgba(0,0,0,.45) !important; }
+  .fb:active { cursor:grabbing; }
+  .cell-drop { transition:background .15s, border-color .15s; }
+  .board-table { border-collapse:separate; border-spacing:5px; }
+  .board-table td, .board-table th { padding:0; }
+  ::-webkit-scrollbar { width:5px; height:5px; }
+  ::-webkit-scrollbar-thumb { background:rgba(232,223,208,.18); border-radius:3px; }
+  input:focus { border-color:rgba(74,222,128,.4) !important; }
+
+  .btn-green { background:rgba(74,222,128,.15); border:1px solid rgba(74,222,128,.3); color:#4ADE80; border-radius:8px; padding:8px 16px; font-size:15px; cursor:pointer; transition:background .15s; }
+  .btn-green:hover { background:rgba(74,222,128,.25); }
+
+  .btn-red { background:rgba(239,83,80,.15); border:1px solid rgba(239,83,80,.3); color:#EF5350; border-radius:8px; padding:8px 16px; font-size:15px; cursor:pointer; transition:background .15s; }
+  .btn-red:hover { background:rgba(239,83,80,.25); }
+
+  .btn-ghost { background:rgba(255,255,255,.06); border:1px solid rgba(232,223,208,.12); color:rgba(232,223,208,.6); border-radius:8px; padding:8px 16px; font-size:15px; cursor:pointer; transition:background .15s; }
+  .btn-ghost:hover { background:rgba(255,255,255,.1); }
+
+  .emoji-btn { background:rgba(255,255,255,.07); border:1px solid rgba(232,223,208,.12); border-radius:6px; padding:5px 8px; font-size:18px; cursor:pointer; transition:background .1s, border-color .1s; }
+  .emoji-btn:hover { background:rgba(255,255,255,.14); }
+  .emoji-btn.sel { border-color:#4ADE80; background:rgba(74,222,128,.12); }
+
+  .food-row { display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid rgba(232,223,208,.07); border-radius:10px; background:rgba(255,255,255,.03); cursor:pointer; transition:background .15s, border-color .15s; }
+  .food-row:hover { background:rgba(255,255,255,.07); border-color:rgba(232,223,208,.15); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .modal-panel { animation:fadeUp .2s ease; }
+
+  .stepper-btn { width:36px; height:36px; border-radius:8px; background:rgba(255,255,255,.08); border:1px solid rgba(232,223,208,.12); color:#E8DFD0; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .1s; }
+  .stepper-btn:hover { background:rgba(255,255,255,.15); }
+`}</style>
 
       <div style={{ minHeight:"100vh", background:"linear-gradient(155deg,#0c1810 0%,#101f16 60%,#0c1810 100%)", fontFamily:"Arial, sans-serif", color:C.text, padding:"22px 24px 40px" }}>
 
